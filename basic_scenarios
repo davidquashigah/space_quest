@@ -1,0 +1,93 @@
+# This document describes how Users interact with NPCs, creatures, and bosses.
+
+# Creatures, Bosses, and Users have the same ‘character design’: strength, dexterity, knowledge, health and mana.
+
+# During an interaction, Users can A) Attack, B) Runaway, or C) Negotiate and [D) Use special skills at level _______] 
+
+
+Attack Scenario
+
+attack_scen = ['a', 'A']
+
+While attack_scen = True:
+  Def attack (character_attributes):
+
+
+# To determine the attack damage during a batte, roll a 10-sided die. The number after the roll, divided by 10 and multiplied by the max attack damage.
+ 
+# The maximum (critical) damage is the Strength Attribute multiplied by the Weapon Attack points.
+
+str_points = 10
+wpn_atk = 2
+
+max_atk_dmg = str_points * wpn_atk
+print(max_atk_dmg) # = 20 
+
+atk_dmg = max_atk_dmg * roll / 10 = random integers 1→10
+10 = 100% of 20 critical hit damage
+9[roll] = 0.9 * max_atk_dmg
+
+# To determine the attack damage during a batte, roll a 10-sided die. The number after the roll, divided by 10 and multiplied by the critical/max attack damage.
+
+
+
+
+Runaway Scenario
+
+Runaway_scen = ['b'', 'B']
+
+While runaway_scen = True:
+Def runaway (character_attributes):
+
+
+To determine the success of a runaway, roll a 10-sided dice. The number after the roll, divided by 10 and multiplied by Luckiness (from Dexterity points).
+
+Dex_points = 10
+Runaway  = randint(1, 10) * dex_points
+
+Hypothetical, 5 is rolled. Multiply the roll (5) times the Dexterity Points. The product is divided by 100% to determine the User’s chance of running away successfully. Then multiply by 10 to determine the minimum roll necessary to successfully runaway.
+
+runaway_chance = roll→ 5 * dex_points→ 10 / 100 * 0.5 
+
+50% chance of running away successfully.
+10 * 0.5 = roll <= 5
+ 
+If the User rolls the die, and the number is 1 <= x <= 5, the character successfully runs away from the situation.
+
+
+
+
+Negotiation Scenario
+
+If the User chooses to Negotiate, they are either negotiating a trade or sale of an item from an NPC, merchants, and -- even -- bosses. In a Boss event, the User can negotiate as selling,  trading, or haggling for the item (loot).  Sometimes the outcome of a negotiation requires another Quest.
+
+Negot_scen = [‘c’, ‘C’]
+
+While negot_sce = True:
+Def negot (character_attributes):
+
+To determine the success of a negotiation, roll a 10-sided dice. The number after the roll, divided by 10 and multiplied by Finess (from Knowledge points). 
+
+know_points = 8
+negot_chance = randint(1, 10) * know_points / 10
+# The result of the roll is 5. The character has 8 Knowledge points. 5 * 8 / 10 = 4
+# Therefore the User needs a # <= 4 on the next roll to successfully Negotiate. 
+
+Negot_roll = Input (“You need to roll at least a “ + negot_chance + “  to successfully negotiate with “ + npc + “. Are you ready  to roll? [Y/N]”)
+
+If negot_roll == ‘n’ or ‘N’:
+	print(“Too bad, you’re rolling anyway.”)
+	negot_roll = print(“You rolled a “ + randint(1, 10) + “.”)
+else:
+	negot_roll = print(“You rolled a “ + randint(1, 10) + “.”)
+	
+
+If negot_roll <= negot_chance:
+	print(“You successfully negotiate with “ + npc + “!”)
+Else:
+	print(“You do are unable to negotiate with “ + npc + “.”)
+
+
+
+
+
